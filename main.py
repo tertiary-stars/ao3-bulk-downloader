@@ -1,26 +1,63 @@
 import requests
 from bs4 import BeautifulSoup
+import os
+from dotenv import load_dotenv
 
-# AO3 credentials
-USERNAME = "your_username"
-PASSWORD = "your_password"
+def login(): # So I can change the login method later on
+    # Load credentials
+    load_dotenv()
+    USERNAME = os.getenv("AO3_USERNAME")
+    PASSWORD = os.getenv("AO3_PASSWORD")
+
+    if not USERNAME or not PASSWORD:
+        raise ValueError("Missing AO3 credentials in .env file.")
+
+    # Use these credentials for the login logic
+    print(f"Logging in as {USERNAME}")
+    # (Add your login logic here, e.g., using `requests` or `selenium`)
+
+    return USERNAME, PASSWORD
 
 # Initialize session
 session = requests.Session()
 
-# Login
+USERNAME, PASSWORD = login()
+
+# Get the login page to extract CSRF token
 login_url = "https://archiveofourown.org/users/login"
+login_page = session.get(login_url)
+soup = BeautifulSoup(login_page.text, "html.parser")
+
+# Extract CSRF token
+csrf_token = soup.find("input", {"name": "authenticity_token"})["value"]
+
+# Send login request
 payload = {
     "user[login]": USERNAME,
     "user[password]": PASSWORD,
-    "commit": "Log in"
+    "authenticity_token": csrf_token,
+    "commit": "Log in",
 }
 
 response = session.post(login_url, data=payload)
 
-if "Logout" in response.text:
-    print("Logged in successfully!")
+# Verify login success
+if "Successfully logged in" in response.text or f"Hi, {USERNAME}" in response.text:
+    print("Login successful!")
+    login = True
+elif "user_session" in session.cookies.get_dict():
+    print("Login successful (via session cookie)!")
+    login = True
+else:
+    print("Login failed!")
+    login = False
 
+# Debug: Save response to inspect in a browser if needed
+with open("response.html", "w", encoding="utf-8") as file:
+    file.write(response.text)
+
+
+if login:
     # Fetch user's works
     works_url = f"https://archiveofourown.org/users/{USERNAME}/works"
     works_page = session.get(works_url)
@@ -42,3 +79,5 @@ if "Logout" in response.text:
 
 else:
     print("Login failed!")
+
+
