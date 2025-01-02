@@ -63,20 +63,14 @@ python ao3_downloader.py --urls urls.txt
 ```
 Where `urls.txt` contains one AO3 URL per line.
 
-
-- Your AO3 credentials are stored securely using environment variables
-- Downloaded works are saved locally only
-- The tool respects AO3's Terms of Service and rate limits
+## Disclaimers
+- Your AO3 credentials are stored securely using environment variables. We have absolutely **no** access to them.
+- Downloaded works are saved locally only. 
+- The tool respects AO3's Terms of Service and rate limits.
 
 ## Contributing
 
 Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
-
-## Limitations
-
-- Works marked as "Registered Users Only" require authentication
-- Scheduled posts require a stable internet connection at the time of posting
-- Rate limiting applies to protect AO3's servers
 
 ## Troubleshooting
 
