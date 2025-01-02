@@ -5,7 +5,7 @@ A tool to download multiple works from Archive of Our Own (AO3) and schedule fut
 ## Features
 
 - Bulk download works from AO3 using one or multiple links
-- Save works in multiple formats (HTML, EPUB, PDF)
+- Save works in multiple formats (HTML, EPUB, PDF, MOBI)
 - Schedule future posts and chapter updates
 - Manage multiple works and their posting schedules through a simple interface
 
@@ -55,13 +55,13 @@ python ao3_scheduler.py
 
 ## Configuration
 
-Create a `config.json` file in the root directory:
+Edit the `config.json` file in the root directory:
 ```json
 {
     "download_format": "EPUB",
     "download_path": "./downloads",
-    "credentials": {
-        "username": "your_ao3_username"
+    "credentials": {"AO3_USERNAME":"binary_starz", 
+                    "AO3_PASSWORD":"gamze8356"
     }
 }
 ```
@@ -70,13 +70,12 @@ Create a `config.json` file in the root directory:
 
 To use the posting scheduler, you'll need to log in to your AO3 account:
 
-1. Run the authentication setup:
+1. Ensure you edited config.json file with your credentials
+2. Run the authentication setup:
 ```bash
 python auth_setup.py
 ```
 
-2. Follow the prompts to enter your credentials
-3. Your session will be saved securely for future use
 
 ## Privacy and Security
 
