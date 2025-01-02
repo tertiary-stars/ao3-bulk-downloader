@@ -32,10 +32,14 @@ def ao3_login():
     # Verify login success
     if "Successfully logged in" in response.text or f"Hi, {username}" in response.text:
         print("Login successful!")
+        return session
     elif "user_session" in session.cookies.get_dict():
         print("Login successful (via session cookie)!")
+        return session
     else:
         print("Login failed!")
+
+    
 
 
 if __name__ == "__main__":
