@@ -1,6 +1,3 @@
-[ ] name change (ao3scheduler -> ao3-downloader-scheduler)
-[ ] 
-
 # AO3 Bulk Downloader and Scheduler
 
 A tool to download multiple works from Archive of Our Own (AO3) and schedule future posts/updates.
