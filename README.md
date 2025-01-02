@@ -6,15 +6,15 @@ A tool to download multiple works from Archive of Our Own (AO3) and schedule fut
 
 - Bulk download works from AO3 using one or multiple links
 - Save works in multiple formats (HTML, EPUB, PDF, MOBI)
-- Schedule future posts and chapter updates
-- Manage multiple works and their posting schedules through a simple interface
+- Schedule future posts and chapter updates (upcoming)
+- Manage multiple works and their posting schedules through a simple interface (upcoming)
 
 ## Installation
 
 1. Ensure you have Python 3.8 or higher installed
 2. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/ao3-downloader-scheduler
+git clone https://github.com/tertiary-stars/ao3-downloader-scheduler
 cd ao3-downloader-scheduler
 ```
 
@@ -23,9 +23,32 @@ cd ao3-downloader-scheduler
 pip install -r requirements.txt
 ```
 
-## Usage
+## Set up
 
-### Downloading Works
+Edit the `config.json` file in the root directory to include your AO3 username and password:
+```json
+{
+    "download_format": "EPUB",
+    "download_path": "./downloads",
+    "credentials": {"AO3_USERNAME":"username", 
+                    "AO3_PASSWORD":"password"
+    }
+}
+```
+Download format takes all formats AO3 allows, it is not case sensitive. 
+
+## Authentication
+
+To use the bulk downloader or scheduler, you'll need to log in to your AO3 account:
+
+1. Ensure you edited config.json file with your credentials
+2. Run the authentication setup:
+```bash
+python auth_setup.py
+```
+This is to ensure restricted works can be downloaded, too.
+
+## Downloading Works
 
 To download works, you can either:
 
@@ -40,44 +63,6 @@ python ao3_downloader.py --urls urls.txt
 ```
 Where `urls.txt` contains one AO3 URL per line.
 
-### Scheduling Posts
-
-1. Launch the scheduler interface:
-```bash
-python ao3_scheduler.py
-```
-
-2. In the scheduler interface:
-   - Select the work you want to schedule
-   - Choose the posting date and time
-   - Set up recurring schedules for multi-chapter works
-   - Preview scheduled posts
-
-## Configuration
-
-Edit the `config.json` file in the root directory:
-```json
-{
-    "download_format": "EPUB",
-    "download_path": "./downloads",
-    "credentials": {"AO3_USERNAME":"binary_starz", 
-                    "AO3_PASSWORD":"gamze8356"
-    }
-}
-```
-
-## Authentication
-
-To use the posting scheduler, you'll need to log in to your AO3 account:
-
-1. Ensure you edited config.json file with your credentials
-2. Run the authentication setup:
-```bash
-python auth_setup.py
-```
-
-
-## Privacy and Security
 
 - Your AO3 credentials are stored securely using environment variables
 - Downloaded works are saved locally only
