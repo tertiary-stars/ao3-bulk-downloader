@@ -2,6 +2,6 @@
     "download_format": "EPUB",
     "download_path": "./downloads",
     "credentials": {"AO3_USERNAME": "", 
-                    "AO3_PASSWORD": ""
+                    "AO3_PASSWORD": "" 
     }
 }
