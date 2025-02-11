@@ -1,6 +1,6 @@
-# AO3 Bulk Downloader and Scheduler
+# AO3 Bulk Downloader 
 
-A tool to download multiple works from Archive of Our Own (AO3) and schedule future posts/updates.
+A tool to download multiple works from Archive of Our Own (AO3) and scheduler.
 
 ## Features
 
@@ -68,9 +68,6 @@ Where `urls.txt` contains one AO3 URL per line.
 - Downloaded works are saved locally only. 
 - The tool respects AO3's Terms of Service and rate limits.
 
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ## Troubleshooting
 
@@ -81,22 +78,17 @@ Common issues and solutions:
    - Verify the URL is accessible
    - Ensure you're logged in for restricted works
 
-2. **Scheduler issues**
-   - Confirm your system time is correct
-   - Check your AO3 session hasn't expired
-   - Verify you have proper permissions for the work
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under MIT license. 
 
 ## Acknowledgments
 
 - Built using the AO3 API guidelines
 - Inspired by the AO3 community's needs
-- Thanks to all contributors and users
 
 ## Support
 
-- Create an issue on GitHub for bug reports
-- Join our Discord community for help
+- Create an issue on GitHub for bug reports.
+- DM me on discord (tertiary.stars) or twt (binary_starz) or email me (xunswriting@gmail.com)! 
